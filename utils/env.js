@@ -1,6 +1,11 @@
 const env = process.env || {};
 
 module.exports = {
-  USERS: env.USERS,
+  COOKIE: env.COOKIE,
+  /* 多用户，当有1名以上用户时填写, 支持同时最多可配置5名用户 */
+  COOKIE_2: env.COOKIE_2,
+  COOKIE_3: env.COOKIE_3,
+  COOKIE_4: env.COOKIE_4,
+  COOKIE_5: env.COOKIE_5,
   PUSHPLUS_TOKEN: env.PUSHPLUS_TOKEN
 };
