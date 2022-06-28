@@ -3,6 +3,8 @@ const { PUSH_URL, API_PREFIX } = require('./config');
 const env = require("./utils/env");
 const utils = require("./utils/utils")
 
+console.log(process.env)
+
 const users = utils.getUsers(env);
 console.log(users);
 const allRequest = users.map((user) => {
