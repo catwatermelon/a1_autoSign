@@ -6,7 +6,7 @@ module.exports = {
         const envCookies = Object.keys(env).filter(key => key.match(/^COOKIE_([0-9])+$/));
         const cookies = filterExistCookie(env, envCookies);
         const usersInfo = cookies.map(item=>{
-            return Object.fromEntries(item.split('&').paramsArr.map(param => param.split('=')));
+            return Object.fromEntries(item.split('&').map(param => param.split('=')));
         })
         return usersInfo;
     }
