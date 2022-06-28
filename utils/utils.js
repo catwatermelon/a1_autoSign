@@ -5,7 +5,9 @@ module.exports = {
     getUsers(env) {
         const envCookies = Object.keys(env).filter(key => key.match(/^COOKIE_([0-9])+$/));
         const cookies = filterExistCookie(env, envCookies);
-        const paramsEntries = cookies.map(paramsStr=>paramsStr.split('&')).map(param=>param.split('='));
-        return Object.fromEntries(paramsEntries);
+        const usersInfo = usersInfo.map(item=>{
+            return Object.fromEntries(item.split('&').paramsArr.map(param => param.split('=')));
+        })
+        return usersInfo;
     }
 };
