@@ -1,6 +1,10 @@
 module.exports = {
+    filterExistCookie(cookies) {
+        return cookies.map(key=>env[key]).filter(Boolean);
+    }
     getUsers(env) {
-        const cookies = Object.keys(env).filter(key => key.match(/^COOKIE_([0-9])+$/));
-        return cookies.map(key=>env[key]).filter(Boolean).map(item=>JSON.parse(item));
+        const cookies = filterExistCookie(Object.keys(env).filter(key => key.match(/^COOKIE_([0-9])+$/)));
+        const paramsEntries = cookies.map(paramsStr=>paramsStr.split("&"))).map(param=>param.split('='));
+        return Object.fromEntries(paramsEntries);
     }
 };
