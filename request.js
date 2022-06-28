@@ -7,7 +7,7 @@ const users = utils.getUsers(env);
 const allRequest = users.map((user) => {
     return new Promise((resolve, reject) => {
         const url = `${API_PREFIX}?userId=${user.userId}&sign=${user.sign}&timestamp=${user.timestamp}`;
-        console.log(user, user.userId, user.sign, user.timestamp);
+        console.log(typeof user, user, user.userId, user.sign, user.timestamp);
         console.log(url);
         axios.get(url).then(res => {
             const content = res.data.success ? '签到成功' : res.data.message;
