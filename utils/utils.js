@@ -4,6 +4,7 @@ const filterExistCookie = (env, envCookies) => {
 };
 module.exports = {
     getUsers(env) {
+        console.log(env);
         const envCookies = Object.keys(env).filter(key => key.startsWith('COOKIE_'));
         console.log(envCookies);
         const cookies = filterExistCookie(env, envCookies);
