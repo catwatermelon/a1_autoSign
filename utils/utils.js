@@ -1,10 +1,5 @@
 module.exports = {
     getUsers(env) {
-        const users = [env.COOKIE];
-
-        const keys = Object.keys(env).filter(key => key.match(/^COOKIE_([0-9])+$/));
-        keys.forEach(key => users.push(env[key]));
-
-        return users.map(item=>JSON.parse(item));
+        return Object.keys(env).filter(key => key.match(/^COOKIE_([0-9])+$/)).map(item=>JSON.parse(item));
     }
 };
